@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eCommerce.Infastructure", "eCommerce.Infastructure\eCommerce.Infastructure.csproj", "{8F1F02FD-CFAF-430B-B649-541270AD71A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eCommerce.Core", "eCommerce.Core\eCommerce.Core.csproj", "{A850183F-0026-46CA-8457-3D6B81AB120D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eCommerce.Api", "eCommerce.Api\eCommerce.Api.csproj", "{AC70357F-70AD-464E-B090-9A9C621A6904}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8F1F02FD-CFAF-430B-B649-541270AD71A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F1F02FD-CFAF-430B-B649-541270AD71A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F1F02FD-CFAF-430B-B649-541270AD71A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F1F02FD-CFAF-430B-B649-541270AD71A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A850183F-0026-46CA-8457-3D6B81AB120D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A850183F-0026-46CA-8457-3D6B81AB120D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A850183F-0026-46CA-8457-3D6B81AB120D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A850183F-0026-46CA-8457-3D6B81AB120D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC70357F-70AD-464E-B090-9A9C621A6904}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC70357F-70AD-464E-B090-9A9C621A6904}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC70357F-70AD-464E-B090-9A9C621A6904}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC70357F-70AD-464E-B090-9A9C621A6904}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
