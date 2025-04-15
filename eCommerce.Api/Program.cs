@@ -7,17 +7,11 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<ProductsDbContext>(options =>
-{
-    options
-        .UseNpgsql(builder.Configuration.GetConnectionString("PostgresConnections"))
-        .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
-        .LogTo(Console.WriteLine, Microsoft.Extensions.Logging.LogLevel.Information);
-});
+
 
 builder.Services.AddAutoMapper(typeof(ProductMappingProfile).Assembly);
 
-builder.Services.AddInfastructure();
+builder.Services.AddInfastructure(builder.Configuration);
 builder.Services.AddCore();
 builder.Services.AddControllers();
 
