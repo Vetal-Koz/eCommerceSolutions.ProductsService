@@ -16,7 +16,12 @@
       "launchUrl": "swagger",
       "applicationUrl": "http://localhost:5282",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "POSTGRES_HOST": "localhost",
+        "POSTGRES_PASSWORD" : "12345",
+        "POSTGRES_PORT" : "5432",
+        "POSTGRES_DATABASE" : "ecommerceproductdatabse",
+        "POSTGRES_USERNAME" : "postgres"
       }
     },
     "https": {
@@ -26,7 +31,12 @@
       "launchUrl": "swagger",
       "applicationUrl": "https://localhost:7294;http://localhost:5282",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "POSTGRES_HOST": "localhost",
+        "POSTGRES_PASSWORD" : "12345",
+        "POSTGRES_PORT" : "5432",
+        "POSTGRES_DATABASE" : "ecommerceproductdatabse",
+        "POSTGRES_USERNAME" : "postgres"
       }
     },
     "IIS Express": {
@@ -34,7 +44,12 @@
       "launchBrowser": true,
       "launchUrl": "swagger",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "POSTGRES_HOST": "localhost",
+        "POSTGRES_PASSWORD" : "12345",
+        "POSTGRES_PORT" : "5432",
+        "POSTGRES_DATABASE" : "ecommerceproductdatabse",
+        "POSTGRES_USERNAME" : "postgres"
       }
     }
   }

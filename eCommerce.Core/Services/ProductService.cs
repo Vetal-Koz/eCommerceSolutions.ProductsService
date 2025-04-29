@@ -2,6 +2,7 @@
 using eCommerce.Core.DTO;
 using eCommerce.Core.Entities;
 using eCommerce.Core.Exceptions;
+using eCommerce.Core.RabbitMQ;
 using eCommerce.Core.RepositoryContracts;
 using eCommerce.Core.ServiceContracts;
 
@@ -11,11 +12,13 @@ public class ProductService : IProductService
 {
     private readonly IProductRepository _productRepository;
     private readonly IMapper _mapper;
+    private readonly IRabbitMQPublisher _rabbitMQPublisher;
 
-    public ProductService(IProductRepository productRepository, IMapper mapper)
+    public ProductService(IProductRepository productRepository, IMapper mapper, IRabbitMQPublisher rabbitMQPublisher)
     {
         _productRepository = productRepository;
         _mapper = mapper;
+        _rabbitMQPublisher = rabbitMQPublisher;
     }
     
     public async Task<IList<ProductResponse>> GetProducts()
@@ -56,7 +59,19 @@ public class ProductService : IProductService
         }
         
         UpdateProductFields(existingProduct, product);
+        
+        bool isProductNameChanged = product.ProductName != existingProduct.ProductName;
+        
         var updatedProduct = await _productRepository.UpdateProduct(existingProduct);
+
+        if (isProductNameChanged)
+        {
+            string routingKey = $"product.update.name";
+            var message = new ProductNameUpdateMessage(productId, product.ProductName );
+            
+            _rabbitMQPublisher.Publish<Product>(routingKey, existingProduct);
+
+        }
         
         return _mapper.Map<ProductResponse>(updatedProduct);
     }
@@ -64,6 +79,10 @@ public class ProductService : IProductService
     public async Task DeleteProduct(Guid productId)
     {
         await _productRepository.DeleteProduct(productId);
+
+        string routingKey = "product.delete";
+        var message = new ProductDeleteMessage(productId);
+        _rabbitMQPublisher.Publish(routingKey, message);
     }
 
     private void UpdateProductFields(Product product, ProductUpdateRequest productUpdateRequest)

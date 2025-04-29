@@ -25,4 +25,8 @@ COPY --from=publish /app/publish .
 
 ENV POSTGRES_HOST=localhost
 ENV POSTGRES_PASSWORD=12345
+ENV POSTGRES_PORT=5432
+ENV POSTGRES_DATABASE=ecommerceproductdatabse
+ENV POSTGRES_USERNAME=postgres
+
 ENTRYPOINT ["dotnet", "eCommerce.Api.dll"]

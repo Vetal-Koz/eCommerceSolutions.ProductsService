@@ -27,6 +27,12 @@ namespace eCommerce.Api.Controllers
         public async Task<ActionResult<ProductResponse>> GetProductsByProductId([FromQuery] Guid productId)
         {
             var product = await _productService.GetProductById(productId);
+            
+            if (product == null)
+            {
+                return NotFound();
+            }
+            
             return Ok(product);
         }
 
